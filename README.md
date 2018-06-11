@@ -1,2 +1,0 @@
-# LFA
-trabalho de lfa
