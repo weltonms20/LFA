@@ -20,7 +20,7 @@ int main ()
 
 
 	vector< vector<char> > aux;
-	vector<char> aux2 (4,'\0');
+	vector<char> aux2;
 
 	vector<char> alfabeto;
 	vector<int> estadosFinais;
@@ -30,7 +30,7 @@ int main ()
 
 
 
-	for (int i = 0; i < 4; ++i)
+	/*for (int i = 0; i < 4; ++i)
 	{
 		aux.push_back(aux2);
 		cout << "ok " << i << endl;
@@ -57,7 +57,7 @@ int main ()
 				//cout << " " << AFD.at(i).at(j).at(k) << endl;
 			}
 		}
-	}
+	}*/
 
 
 
@@ -74,6 +74,18 @@ int main ()
         qtdEstadosFinais = str.at(0)-'0';
 
 		cout << " estados : " << qtdEstados << " - transicoes " << qtdTransicoes << " - simbolos: " << qtdSimbolos << " estados finais  " << qtdEstadosFinais << endl; 
+
+		for (int i = 0; i < qtdSimbolos; ++i)
+		{
+			aux.push_back(aux2);
+		}
+		for (int i = 0; i < qtdEstados; ++i)
+		{
+			AFN.push_back(aux);
+		}
+
+
+
 
 		for (int i = 0; i < qtdSimbolos; ++i)
 		{
