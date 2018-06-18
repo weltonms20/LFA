@@ -7,6 +7,7 @@ using namespace std;
 int main ()
 {
 	int qtdEstados; // qtd = quantidade
+	int qtdEstadosAFD;
 	int qtdTransicoes;
 	int qtdSimbolos;
 	int qtdEstadosFinais;
@@ -35,6 +36,7 @@ int main ()
     {
         myfile >> str;
         qtdEstados = str.at(0)-'0';
+        qtdEstadosAFD = (qtdEstados*(qtdEstados-1)+1);
         myfile >> str;
         qtdTransicoes = str.at(0)-'0';
         myfile >> str;
@@ -42,16 +44,25 @@ int main ()
         myfile >> str;
         qtdEstadosFinais = str.at(0)-'0';
 
-		cout << " estados : " << qtdEstados << " - transicoes " << qtdTransicoes << " - simbolos: " << qtdSimbolos << " estados finais  " << qtdEstadosFinais << endl; 
+		cout << " estados : " << qtdEstados << " - transicoes " << qtdTransicoes << " - simbolos: " << qtdSimbolos << " estados finais  " << qtdEstadosFinais << " quantidade AFD " << qtdEstadosAFD << endl; 
 
 		for (int i = 0; i < qtdSimbolos; ++i) // alocar espaco pra botar os estados destino de acordo com a quantidade de simbolos
 		{
 			aux.push_back(aux2);
 		}
+		//alocando AFN
 		for (int i = 0; i < qtdEstados; ++i) // alocar cada linha de estados
 		{
 			AFN.push_back(aux);
 		}
+
+        //alocando AFD
+		for (int i = 0; i < qtdEstadosAFD; ++i) // alocar cada linha de estados
+		{
+			AFD.push_back(aux);
+		}
+
+       
 
 
 
@@ -65,6 +76,7 @@ int main ()
 			cout << endl;
 
 		// lendo as trnaisções e guardando na AFN
+        cout << endl << "----------------lendo do arquivo e imprimindo antes de inserir na AFN --------------" << endl;
         for (int i = 0; i < qtdTransicoes; ++i)
         {
         	myfile >> str;
@@ -74,7 +86,6 @@ int main ()
         	myfile >> str;
         	estado2 = str.at(0)-'0';
 
-        	cout << "oi\0";
 			AFN.at(estado1).at(leitura-97).push_back(str.at(0));
 			cout << " " << estado1 << " > " << estado2 << " - lendo: " << leitura << endl; 
         }
@@ -88,6 +99,7 @@ int main ()
         }
 
         // imprimindo a AFN lida 
+        cout << endl << "----------------lendo AFN direto da matriz --------------" << endl;
         for (int i = 0; i < AFN.size(); ++i)
         {
         	for (int j = 0; j < AFN.at(i).size(); ++j)
@@ -98,6 +110,7 @@ int main ()
         		}
         	}
         }
+
 	}
 
 	cout << "ok" << endl;
