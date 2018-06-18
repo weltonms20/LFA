@@ -1,0 +1,25 @@
+3 8 3 1
+
+a b c
+
+0 a 0
+0 b 0
+0 c 0
+0 b 1
+1 b 2
+2 a 2
+2 b 2
+2 c 2
+
+2
+
+-------------------------------
+
+primeiro argumento A : número de estados
+segundo argumento X : número de transições
+terceiro argumento Y : número de símbolos do alfabeto
+quarto argumento Z : número de estados finais
+
+quinto argumento : X transições onde essas transições são compostas por = (estadoPartida) (Símbolo) (estadoFinal)
+
+Sexto Argumento : Z estados finais separados por espaço.
